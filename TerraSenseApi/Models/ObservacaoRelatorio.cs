@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TerraSenseApi.Models;
 
@@ -20,6 +21,7 @@ public class ObservacaoRelatorio
     [Column("ID_RELATORIO")]
     public int RelatorioPlantacaoId { get; set; }
 
+    [JsonIgnore]
     [ForeignKey(nameof(RelatorioPlantacaoId))]
-    public RelatorioPlantacao RelatorioPlantacao { get; set; } = null!;
+    public RelatorioPlantacao? RelatorioPlantacao { get; set; }
 }

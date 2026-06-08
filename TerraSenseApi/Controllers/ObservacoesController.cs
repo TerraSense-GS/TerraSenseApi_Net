@@ -36,6 +36,15 @@ public class ObservacoesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<ObservacaoRelatorio>> PostObservacao(ObservacaoRelatorio observacao)
     {
+        // Tratamento de erro: quando selecionado um relatório deletado ou não existente, retornar BadRequest.
+        var relatorioExiste = await _context.RelatoriosPlantacoes
+            .AnyAsync(r => r.IdRelatorio == observacao.RelatorioPlantacaoId);
+
+        if (!relatorioExiste)
+        {
+            return BadRequest("Relatório informado não existe.");
+        }
+        
         observacao.DataCriacao = DateTime.Now;
 
         _context.ObservacoesRelatorio.Add(observacao);
