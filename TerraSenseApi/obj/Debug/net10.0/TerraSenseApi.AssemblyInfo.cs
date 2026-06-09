@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TerraSenseApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d2cca65cd88ac33ad384df82260342d9f8240a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff37593650e33989df2e16a1b709d052d4009020")]
 [assembly: System.Reflection.AssemblyProductAttribute("TerraSenseApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TerraSenseApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
