@@ -87,10 +87,23 @@ public class RelatoriosController : ControllerBase
         if (id != relatorio.IdRelatorio)
             return BadRequest();
 
-        if (!await _context.RelatoriosPlantacoes.AnyAsync(r => r.IdRelatorio == id))
+        var relatorioExistente = await _context.RelatoriosPlantacoes.FindAsync(id);
+
+        if (relatorioExistente == null)
             return NotFound();
-        
-        _context.Entry(relatorio).State = EntityState.Modified;
+
+        relatorioExistente.IdPlantacao = relatorio.IdPlantacao;
+        relatorioExistente.NomePlantacao = relatorio.NomePlantacao;
+        relatorioExistente.NomePropriedade = relatorio.NomePropriedade;
+        relatorioExistente.Cidade = relatorio.Cidade;
+        relatorioExistente.Ndvi = relatorio.Ndvi;
+        relatorioExistente.StatusGeral = relatorio.StatusGeral;
+        relatorioExistente.Temperatura = relatorio.Temperatura;
+        relatorioExistente.Umidade = relatorio.Umidade;
+        relatorioExistente.Chuva = relatorio.Chuva;
+        relatorioExistente.RadiacaoSolar = relatorio.RadiacaoSolar;
+        relatorioExistente.DataRelatorio = relatorio.DataRelatorio;
+
         await _context.SaveChangesAsync();
 
         return NoContent();
