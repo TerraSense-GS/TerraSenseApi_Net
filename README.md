@@ -84,51 +84,16 @@ A persistência dos dados é feita em banco relacional por meio das tabelas:
 - `TB_RELATORIO_PLANTACAO`
 - `TB_OBSERVACAO_RELATORIO`
 
-## Relacionamento
+## Relacionamento do Banco de Dados
 
-O projeto possui relacionamento **1:N**:
+O projeto possui um relacionamento **1:N** entre relatórios e observações.
 
-```text
-TB_RELATORIO_PLANTACAO 1:N TB_OBSERVACAO_RELATORIO
-```
+- Um relatório pode possuir várias observações.
+- Uma observação pertence a apenas um relatório.
 
-Ou seja:
+### Diagrama Entidade-Relacionamento 
 
-```text
-Um relatório pode possuir várias observações.
-Uma observação pertence a apenas um relatório.
-```
-
-## Diagrama Simplificado - FAZER DIAGRAMA NO DATAMODELER DPS
-
-```text
-TB_RELATORIO_PLANTACAO
-----------------------
-PK  ID_RELATORIO
-    ID_PLANTACAO
-    NomePlantacao
-    NomePropriedade
-    Cidade
-    Ndvi
-    StatusGeral
-    Temperatura
-    Umidade
-    Chuva
-    RadiacaoSolar
-    DataRelatorio
-
-            1
-            |
-            |
-            N
-
-TB_OBSERVACAO_RELATORIO
------------------------
-PK  ID_OBSERVACAO
-FK  ID_RELATORIO
-    DS_OBSERVACAO
-    DT_CRIACAO
-```
+<img width="1230" height="1279" alt="image" src="https://github.com/user-attachments/assets/b7a95867-d89f-400c-adfc-17ae5bf89a29" />
 
 ---
 
