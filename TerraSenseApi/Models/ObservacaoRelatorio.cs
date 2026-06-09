@@ -12,6 +12,7 @@ public class ObservacaoRelatorio
     public int IdObservacao { get; set; }
 
     [Required]
+    [StringLength(500)]
     [Column("DS_OBSERVACAO")]
     public string Descricao { get; set; } = string.Empty;
 

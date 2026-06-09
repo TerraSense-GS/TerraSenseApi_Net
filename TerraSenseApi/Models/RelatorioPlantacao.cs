@@ -14,17 +14,21 @@ public class RelatorioPlantacao
     public int IdPlantacao { get; set; }
     
     [Required]
+    [StringLength(150)]
     public string NomePlantacao { get; set; } = string.Empty;
     
     [Required]
+    [StringLength(150)]
     public string NomePropriedade { get; set; } = string.Empty;
     
     [Required]
+    [StringLength(100)]
     public string Cidade { get; set; } = string.Empty;
 
     public decimal Ndvi { get; set; }
     
     [Required]
+    [StringLength(20)]
     public string StatusGeral { get; set; } = string.Empty;
     
     public decimal Temperatura { get; set; }

@@ -16,13 +16,22 @@ public class ObservacoesController : ControllerBase
         _context = context;
     }
 
+    /// <summary>
+    /// Retorna todas as observações
+    /// </summary>
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<IEnumerable<ObservacaoRelatorio>>> GetObservacoes()
     {
         return await _context.ObservacoesRelatorio.ToListAsync();
     }
 
+    /// <summary>
+    /// Retorna a observação com o ID compatível
+    /// </summary>
     [HttpGet("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ObservacaoRelatorio>> GetObservacao(int id)
     {
         var observacao = await _context.ObservacoesRelatorio.FindAsync(id);
@@ -33,7 +42,12 @@ public class ObservacoesController : ControllerBase
         return observacao;
     }
 
+    /// <summary>
+    /// Cadastra uma nova observação vinculada a um relatório existente
+    /// </summary>
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<ObservacaoRelatorio>> PostObservacao(ObservacaoRelatorio observacao)
     {
         // Tratamento de erro: quando selecionado um relatório deletado ou não existente, retornar BadRequest.
@@ -53,7 +67,12 @@ public class ObservacoesController : ControllerBase
         return CreatedAtAction(nameof(GetObservacao), new { id = observacao.IdObservacao }, observacao);
     }
 
+    /// <summary>
+    /// Remove uma observação específica
+    /// </summary>
     [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteObservacao(int id)
     {
         var observacao = await _context.ObservacoesRelatorio.FindAsync(id);

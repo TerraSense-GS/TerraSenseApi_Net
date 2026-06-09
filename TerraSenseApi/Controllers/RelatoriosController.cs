@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TerraSenseApi.Data;
 using TerraSenseApi.Models;
@@ -17,7 +16,11 @@ public class RelatoriosController : ControllerBase
         _context = context;
     }
 
+    /// <summary>
+    /// Retorna todos os relatórios
+    /// </summary>
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<IEnumerable<RelatorioPlantacao>>> GetRelatorios()
     {
         return await _context.RelatoriosPlantacoes
@@ -25,7 +28,12 @@ public class RelatoriosController : ControllerBase
             .ToListAsync();
     }
 
+    /// <summary>
+    /// Busca um relatório por ID
+    /// </summary>
     [HttpGet("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<RelatorioPlantacao>> GetRelatorio(int id)
     {
         var relatorio = await _context.RelatoriosPlantacoes
@@ -38,7 +46,11 @@ public class RelatoriosController : ControllerBase
         return relatorio;
     }
 
+    /// <summary>
+    /// Busca um relatório pelo ID da plantação
+    /// </summary>
     [HttpGet("plantacao/{idPlantacao}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<IEnumerable<RelatorioPlantacao>>> GetRelatoriosPorPlantacao(int idPlantacao)
     {
         return await _context.RelatoriosPlantacoes
@@ -47,7 +59,12 @@ public class RelatoriosController : ControllerBase
             .ToListAsync();
     }
 
+    /// <summary>
+    /// Cadastra um novo relatório
+    /// </summary>
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<RelatorioPlantacao>> PostRelatorio(RelatorioPlantacao relatorio)
     {
         relatorio.DataRelatorio = DateTime.Now;
@@ -58,19 +75,33 @@ public class RelatoriosController : ControllerBase
         return CreatedAtAction(nameof(GetRelatorio), new { id = relatorio.IdRelatorio }, relatorio);
     }
 
+    /// <summary>
+    /// Atualiza um relatório
+    /// </summary>
     [HttpPut("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> PutRelatorio(int id, RelatorioPlantacao relatorio)
     {
         if (id != relatorio.IdRelatorio)
             return BadRequest();
 
+        if (!await _context.RelatoriosPlantacoes.AnyAsync(r => r.IdRelatorio == id))
+            return NotFound();
+        
         _context.Entry(relatorio).State = EntityState.Modified;
         await _context.SaveChangesAsync();
 
         return NoContent();
     }
 
+    /// <summary>
+    /// Deleta um relatório e suas observações vinculadas
+    /// </summary>
     [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteRelatorio(int id)
     {
         var relatorio = await _context.RelatoriosPlantacoes.FindAsync(id);
