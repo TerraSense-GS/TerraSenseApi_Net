@@ -84,51 +84,16 @@ A persistência dos dados é feita em banco relacional por meio das tabelas:
 - `TB_RELATORIO_PLANTACAO`
 - `TB_OBSERVACAO_RELATORIO`
 
-## Relacionamento
+## Relacionamento do Banco de Dados
 
-O projeto possui relacionamento **1:N**:
+O projeto possui um relacionamento **1:N** entre relatórios e observações.
 
-```text
-TB_RELATORIO_PLANTACAO 1:N TB_OBSERVACAO_RELATORIO
-```
+- Um relatório pode possuir várias observações.
+- Uma observação pertence a apenas um relatório.
 
-Ou seja:
+### Diagrama Entidade-Relacionamento 
 
-```text
-Um relatório pode possuir várias observações.
-Uma observação pertence a apenas um relatório.
-```
-
-## Diagrama Simplificado - FAZER DIAGRAMA NO DATAMODELER DPS
-
-```text
-TB_RELATORIO_PLANTACAO
-----------------------
-PK  ID_RELATORIO
-    ID_PLANTACAO
-    NomePlantacao
-    NomePropriedade
-    Cidade
-    Ndvi
-    StatusGeral
-    Temperatura
-    Umidade
-    Chuva
-    RadiacaoSolar
-    DataRelatorio
-
-            1
-            |
-            |
-            N
-
-TB_OBSERVACAO_RELATORIO
------------------------
-PK  ID_OBSERVACAO
-FK  ID_RELATORIO
-    DS_OBSERVACAO
-    DT_CRIACAO
-```
+<img width="1230" height="1279" alt="image" src="https://github.com/user-attachments/assets/b7a95867-d89f-400c-adfc-17ae5bf89a29" />
 
 ---
 
@@ -416,13 +381,26 @@ Ao excluir um relatório, as observações relacionadas são removidas automatic
 
 ---
 
-# Prints dos Testes - FAZER AS PRINTS
-
-Adicionar prints de:
+# Prints dos Testes
 
 - Swagger aberto com os endpoints
+
+<img width="739" height="719" alt="image" src="https://github.com/user-attachments/assets/e3162acc-d581-417b-9f0f-01463906f66a" />
+
+<img width="739" height="719" alt="image" src="https://github.com/user-attachments/assets/0866e38f-d7e2-4b66-8d33-14ba8b1bd52d" />
+
 - POST de relatório
+
+<img width="682" height="719" alt="image" src="https://github.com/user-attachments/assets/9b7fa789-40b4-41d2-b257-86b7ce771476" />
+
+<img width="682" height="719" alt="image" src="https://github.com/user-attachments/assets/97c946b4-8bcc-42bd-ab20-b28f5e8daefe" />
+
 - GET de relatório
+
+<img width="682" height="721" alt="image" src="https://github.com/user-attachments/assets/72d7d900-d0be-44b0-b00b-4799837fcc82" />
+
+<img width="683" height="720" alt="image" src="https://github.com/user-attachments/assets/ffb16059-3441-446f-a5a7-1ef178688a3a" />
+
 - PUT de relatório
 - DELETE de relatório
 - POST de observação
