@@ -401,13 +401,50 @@ Ao excluir um relatório, as observações relacionadas são removidas automatic
 
 <img width="683" height="720" alt="image" src="https://github.com/user-attachments/assets/ffb16059-3441-446f-a5a7-1ef178688a3a" />
 
+- GET de relatório por ID
+
+<img width="715" height="717" alt="image" src="https://github.com/user-attachments/assets/a91ff26b-2b74-42a1-a858-3984e9164404" />
+
+<img width="714" height="718" alt="image" src="https://github.com/user-attachments/assets/9c4d3634-c5d7-483d-9a26-26e73a7ebb4a" />
+
 - PUT de relatório
+
+<img width="715" height="718" alt="image" src="https://github.com/user-attachments/assets/67767d49-077d-4d98-bd51-93e171e882c7" />
+
+<img width="715" height="717" alt="image" src="https://github.com/user-attachments/assets/dd71df9a-a6af-42a7-975f-6670b4bbcdef" />
+
 - DELETE de relatório
+
+<img width="715" height="718" alt="image" src="https://github.com/user-attachments/assets/8e5cbae9-aa89-4861-be13-08c1560cffd4" />
+
 - POST de observação
+
+<img width="714" height="717" alt="image" src="https://github.com/user-attachments/assets/8b4610fe-abd7-4a56-8f0d-21d7fddca6ad" />
+
+<img width="714" height="718" alt="image" src="https://github.com/user-attachments/assets/9a5e5b06-c9cb-4793-8618-40d92dff981b" />
+
 - GET de observação
+
+<img width="714" height="719" alt="image" src="https://github.com/user-attachments/assets/6d0741d0-23c9-441d-989f-c5b10869fe4d" />
+
+- GET de observação por ID
+
+<img width="715" height="717" alt="image" src="https://github.com/user-attachments/assets/22a0aaed-ca71-4710-9967-0e2482886b27" />
+
 - DELETE de observação
+
+<img width="715" height="721" alt="image" src="https://github.com/user-attachments/assets/039803de-1669-49d0-8cb1-cdcb1bd5e577" />
+
 - Consulta das tabelas no Oracle
+  - TB_RELATORIO_PLANTACAO
+  <img width="1162" height="162" alt="image" src="https://github.com/user-attachments/assets/c93b8a6b-72da-4aac-8198-825dd5107447" />
+
+  - TBM_OBSERVACAO_RELATORIO
+  <img width="736" height="117" alt="image" src="https://github.com/user-attachments/assets/221d6384-fb5e-43b6-981a-2e3bdf857c58" />
+
 - Migration criada no projeto
+
+<img width="420" height="92" alt="image" src="https://github.com/user-attachments/assets/2757e6e6-3e3c-4f57-ba45-8a5ceacfbc82" />
 
 ---
 
