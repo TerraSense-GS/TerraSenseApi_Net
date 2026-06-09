@@ -298,7 +298,7 @@ Exemplo:
 ## 1. Clonar o repositório - COLOCAR URL
 
 ```bash
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/TerraSense-GS/TerraSenseApi_Net.git
 ```
 
 ## 2. Entrar na pasta do projeto
@@ -439,7 +439,7 @@ Ao excluir um relatório, as observações relacionadas são removidas automatic
   - TB_RELATORIO_PLANTACAO
   <img width="1162" height="162" alt="image" src="https://github.com/user-attachments/assets/c93b8a6b-72da-4aac-8198-825dd5107447" />
 
-  - TBM_OBSERVACAO_RELATORIO
+  - TB_OBSERVACAO_RELATORIO
   <img width="736" height="117" alt="image" src="https://github.com/user-attachments/assets/221d6384-fb5e-43b6-981a-2e3bdf857c58" />
 
 - Migration criada no projeto
